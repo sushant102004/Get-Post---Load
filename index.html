@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script>
+         $(document).ready(function () {
+                $("button").click(function () {
+                 $("#changeText").load("demo.txt", function (responseTxt, statusTxt, err) {
+                     if (statusTxt == "error") alert("Error: " + err.status + ": " + err.statusText);
+                 });
+             });
+         });
+
+        $(document).ready(function(){
+            $("button").click(function(){
+                $.get("https://jsonplaceholder.typicode.com/todos/1", function(data, status){
+                    alert("Data: " + data + "\nStatus: " + status);
+            });
+        });
+    });
+
+    $(document).ready(function(){
+        $("button").click(function(){
+            $.post("https://jsonplaceholder.typicode.com/posts",
+                { title: "Donald Duck" },
+            function(data,status){
+                alert("Data: " + data.title + "\nStatus: " + status);
+            });
+        }); 
+    });
+
+     </script>
+</head>
+<body>
+     <div id="changeText">Text to be changed.</div>
+     <button>Click me!</button> -->
+     <button id="getRequest">Get Request Demo</button>
+     <button id="postRequest">Post Request Demo</button>
+</body>
+</html>
